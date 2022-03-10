@@ -6,5 +6,6 @@ const country = new Schema({
         type: String,
         required: true
     }
+    
 }, { timestamps: true });
 export const Country = mongoose.model('Country', country);
