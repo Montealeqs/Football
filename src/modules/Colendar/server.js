@@ -1,10 +1,12 @@
 
 import { Colendar } from "../../models/colendar";
 
+
 export default class ServerColendar {
-    static async get({ data }) {
-        return Colendar.find(data).populate(['team1Id', 'team2Id']);
+    static async get() {
+        return Colendar.find().populate(['team1Id', 'team2Id']);
     }
+   
     static async create({ data }) {
         return Colendar.create(data)
     }
@@ -14,4 +16,6 @@ export default class ServerColendar {
     static async delete({ params }, { body }) {
         return Colendar.findByIdAndDelete({ _id: params }, body)
     }
+
+    static 
 }

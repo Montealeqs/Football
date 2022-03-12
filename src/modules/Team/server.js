@@ -1,8 +1,8 @@
 import { Team } from "../../models/team";
 
 export default class ServerTeam {
-    static async get({ data }) {
-        return Team.find(data)
+    static async get() {
+        return Team.find()
     }
     static async create({ data }) {
         return Team.create(data)

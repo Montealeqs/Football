@@ -27,7 +27,7 @@ const player = new Schema({
         required: false
     },
   
-  teamId: [{ type: Schema.Types.ObjectId, ref: 'Team' }],
+  teamId: { type: Schema.Types.ObjectId, ref: 'Team' },
   countryId:{ type: Schema.Types.ObjectId, ref: 'Country' }
 }, { timestamps: true });
 export const Player = mongoose.model('Player', player);

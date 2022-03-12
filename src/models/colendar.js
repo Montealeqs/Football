@@ -10,7 +10,8 @@ const colendar = new Schema({
         type: String,
 
     },
-    team1Id: [{ type: Schema.Types.ObjectId, ref: 'Team' }],
-    team2Id: [{ type: Schema.Types.ObjectId, ref: 'Team' }]
+    team1Id: { type: Schema.Types.ObjectId, ref: 'Team' },
+
+    team2Id: { type: Schema.Types.ObjectId, ref: 'Team' }
 }, { timestamps: true });
 export const Colendar = mongoose.model('Colendar', colendar);

@@ -4,11 +4,13 @@ const { Schema } = mongoose;
 const team = new Schema({
     name: {
         type: String,
-        required: true
+        
     },
     trenerName: {
-        type: String,
-        required: true
+        type: String,   
+    },
+    reting:{
+        type:Number,
     }
 }, { timestamps: true });
 export const Team = mongoose.model('Team', team);

@@ -1,8 +1,13 @@
 import { Player } from "../../models/player";
 
 export default class ServerPlayer {
-    static async get({ data }) {
-        return (await Player.find().sort({ name: data }).populate('countryId').populate(['teamId']))
+
+    static async getPlayer({ data }) {
+        return Player.find(data).populate('countryId').populate('teamId')
+    }
+
+    static async getSortPlayer({ data }) {
+        return (await Player.find().sort({ name: data }).populate('countryId').populate('teamId'))
     }
 
     static async create({ data }) {
@@ -16,7 +21,14 @@ export default class ServerPlayer {
     static async delete({ params }, { body }) {
         return Player.findByIdAndDelete({ _id: params }, body)
     }
-    static async sortPlayer() {
+
+    static async createMany({ data }) {
+        return Player.insertMany(data)
+    }
+    static async sortPlayerCountry() {
         return Player.find().populate('countryId')
+    }
+    static async sortPlayerTeam() {
+        return Player.find().populate('teamId')
     }
 }
